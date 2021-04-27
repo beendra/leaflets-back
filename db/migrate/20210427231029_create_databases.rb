@@ -5,8 +5,9 @@ class CreateDatabases < ActiveRecord::Migration[6.1]
       t.string :common_name
       t.string :scientific_name
       t.string :lighting
-      t.string :thirst
-      t.string :about
+      t.string :watering
+      t.string :humidity
+      t.boolean :pet_friendly
 
       t.timestamps
     end
