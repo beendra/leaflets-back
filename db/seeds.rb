@@ -11,4 +11,4 @@ Database.destroy_all
 
 #Log Seeds
 
-puts "🌿🌿🌿🌿 seeded 🌿🌿🌿🌿"
+puts "🌿🌿🌿🌿🌿 seeded 🌿🌿🌿🌿🌿"
