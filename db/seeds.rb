@@ -57,9 +57,12 @@ Database.create(image: "./public/db-images/Sedum.jpeg", common_name: "Sedum clav
 
 
 #User Seeds
+User.create(username: "plantmom", password_digest: "123", name: "Alex")
 
 #Plant Seeds
+Plant.create(plant_name: "My Anthurium", user_id: 1, database_id: 1)
 
 #Log Seeds
+Log.create(date: "01/01/2021", entry: "Watered today.", plant_id: 1)
 
 puts "🌿🌿🌿🌿🌿 seeded 🌿🌿🌿🌿🌿"
