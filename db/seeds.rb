@@ -57,7 +57,7 @@ Database.create(image: "./public/db-images/Sedum.jpeg", common_name: "Sedum clav
 
 
 #User Seeds
-User.create(username: "plantmom", password_digest: "123", name: "Alex")
+User.create(username: "plantmom", password: "123", name: "Alex")
 
 #Plant Seeds
 Plant.create(plant_name: "My Anthurium", user_id: 1, database_id: 1)
