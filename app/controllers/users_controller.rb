@@ -4,6 +4,7 @@ class UsersController < ApplicationController
         #fake auth
         @user = User.first
         render json: @user
+    end
 
     def index 
         @users = User.all 
@@ -23,7 +24,8 @@ class UsersController < ApplicationController
     end 
 
     def update
-        @user = User.find_by(id: params[:id])
+        # @user = User.find_by(id: params[:id])
+        @user = User.first
         @user.update(user_params)
         render json: @user 
     end 
@@ -39,6 +41,5 @@ class UsersController < ApplicationController
     def user_params 
         params.permit(:username, :password, :name)
     end 
-end
 
 end
