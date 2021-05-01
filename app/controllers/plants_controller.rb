@@ -11,7 +11,17 @@ class PlantsController < ApplicationController
     end 
 
     def create 
-        @plant = Plant.create(plant_params)
+        # byebug
+        @plant = params.permit!()
+        new_plant = {
+            user_id: @plant["user_id"],
+            database_id: @plant["database_id"],
+            plant_name: @plant["plant_name"], 
+            photo: @plant["photo"]         
+        }
+        Plant.create(new_plant)
+        # @plant = Plant.create!(plant_params)
+        # @plant.photo.attach
         render json: @plant
     end 
 
@@ -31,6 +41,8 @@ class PlantsController < ApplicationController
 
     def plant_params 
         params.permit(:plant_name, :user_id, :database_id, :photo)
+        byebug
+        0
     end 
 
 end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :logs
-  resources :plants
+  # resources :plants
   resources :databases
   resources :users
 
@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   post "/login", to: "users#login"
   # post "/users", to: "users#create"
   # delete "/my-account/:id", to: "users#destroy"
-
+  
+  get "/plants", to: "plants#index"
   post "/plants", to: "plants#create"
   get "/my-account/:id", to: "plants#show" 
   patch "/plants", to: "plants#update"
