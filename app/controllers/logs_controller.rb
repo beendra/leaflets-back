@@ -30,7 +30,7 @@ class LogsController < ApplicationController
     private 
 
     def log_params 
-        params.permit(:date, :entry, :plant_id)
+        params.permit(:date, :entry, :plant_id, :image)
     end 
 
 end

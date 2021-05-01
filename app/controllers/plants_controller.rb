@@ -30,7 +30,7 @@ class PlantsController < ApplicationController
     private 
 
     def plant_params 
-        params.permit(:plant_name, :user_id, :database_id)
+        params.permit(:plant_name, :user_id, :database_id, :photo)
     end 
 
 end
