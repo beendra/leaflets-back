@@ -70,5 +70,9 @@ Plant.create(plant_name: "My Worst Plant", user_id: 1, database_id: 24)
 
 #Log Seeds
 Log.create(date: "01/01/2021", entry: "Watered today.", plant_id: 1)
+Log.create(date: "02/02/2021", entry: "New flower.", plant_id: 1)
+Log.create(date: "02/03/2021", entry: "New leaf!", plant_id: 2)
+Log.create(date: "03/01/2021", entry: "Repotted.", plant_id: 2)
+Log.create(date: "04/01/2021", entry: "Misted the leaves.", plant_id: 3)
 
 puts "🌿🌿🌿🌿🌿 seeded 🌿🌿🌿🌿🌿"
