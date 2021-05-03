@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get "/plants", to: "plants#index"
   post "/plants", to: "plants#create"
   get "/my-account/:id", to: "plants#show" 
-  patch "/plants", to: "plants#update"
+  patch "/plants/:id", to: "plants#update"
   delete "/plants/:id", to: "plants#destroy"
   patch "plants/:id", to: "plants#update"
 

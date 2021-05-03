@@ -41,8 +41,6 @@ class PlantsController < ApplicationController
 
     def plant_params 
         params.permit(:plant_name, :user_id, :database_id, :photo)
-        byebug
-        0
     end 
 
 end
