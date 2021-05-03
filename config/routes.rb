@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "/my-account/:id", to: "plants#show" 
   patch "/plants/:id", to: "plants#update"
   delete "/plants/:id", to: "plants#destroy"
-  patch "plants/:id", to: "plants#update"
 
+  get "/guides", to: "databases#index"
+  get "/guides/:id", to: "databases#show"
 end

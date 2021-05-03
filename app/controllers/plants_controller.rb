@@ -1,46 +1,47 @@
 class PlantsController < ApplicationController
 
     def index 
-        @plants = Plant.all 
-        render json: @plants
+        plants = Plant.all 
+        render json: plants
     end 
 
     def show
-        @plant = Plant.find_by(id: params[:id])
-        render json: @plant
+        plant = Plant.find_by(id: params[:id])
+        render json: plant
     end 
 
     def create 
         # byebug
-        @plant = params.permit!()
+        database_plant = Database.find_by(common_name: params[:database_id])
         new_plant = {
-            user_id: @plant["user_id"],
-            database_id: @plant["database_id"],
-            plant_name: @plant["plant_name"], 
-            photo: @plant["photo"]         
+            user_id: params[:user_id],
+            database_id: database_plant.id,
+            plant_name: params[:plant_name], 
+            photo: params[:photo]         
         }
-        Plant.create(new_plant)
-        # @plant = Plant.create!(plant_params)
-        # @plant.photo.attach
-        render json: @plant
+        a_plant = Plant.create(new_plant)
+        # plant = Plant.create!(plant_params)
+        # plant.photo.attach
+        render json: a_plant
     end 
 
     def update
-        @plant = Plant.find_by(id: params[:id])
-        @plant.update(plant_params)
-        render json: @plant 
+        plant = Plant.find_by(id: params[:id])
+        plant.update(plant_params)
+        render json: plant 
     end 
 
     def destroy
-        @plant = Plant.find_by(id: params[:id])
-        @plant.destroy
-        render json: @plant
+        plant = Plant.find_by(id: params[:id])
+        plant.destroy
+        render json: plant
     end 
 
     private 
 
     def plant_params 
         params.permit(:plant_name, :user_id, :database_id, :photo)
+        # params.require(:plant).permit(:plant_name, :user_id, :database_id, :photo)
     end 
 
 end
