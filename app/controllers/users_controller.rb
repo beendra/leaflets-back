@@ -2,12 +2,12 @@ class UsersController < ApplicationController
     before_action :authenticate, only: [:show, :update, :destroy]
 
     def login
-        #fake auth
         user = User.find_by(username: params[:username])
         if user && user.authenticate(params[:password])
-            render json: user
+            token = JWT.encode({ user_id: user.id }, 'my_secret', 'HS256')
+            render json: { user: UserSerializer.new(user), token: token }
         else
-            render json: { errors: {"Invalid username or password."} }, status: :unauthorized
+            render json: { errors: ["Invalid username or password."] }, status: :unauthorized
         end
     end
 
@@ -27,7 +27,8 @@ class UsersController < ApplicationController
     def create 
         user = User.create(user_params)
         if user.valid?
-            render json: user, status: :created
+            token = JWT.encode({ user_id: user.id }, 'my_secret', 'HS256')
+            render json: { user: UserSerializer.new(user), token: token }, status: :created
         else 
             render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
@@ -51,7 +52,7 @@ class UsersController < ApplicationController
     private 
 
     def user_params 
-        params.require(:user).permit(:username, :password, :name)
+        params.permit(:username, :password, :name)
     end 
 
 end
