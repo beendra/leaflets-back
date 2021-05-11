@@ -4,12 +4,13 @@ Rails.application.routes.draw do
   resources :databases
   resources :users
 
-  get "/login", to: "users#login"
-  # post "/login", to: "users#login"
+  # get "/login", to: "users#login"
+  post "/login", to: "users#login"
   get "/my-account/:id", to: "users#show"
   post "/login", to: "users#login"
-  # post "/users", to: "users#create"
-  # delete "/my-account/:id", to: "users#destroy"
+  post "/users", to: "users#create"
+  patch "/users", to: "users#update"
+  delete "/users/:id", to: "users#destroy"
   
   get "/plants", to: "plants#index"
   post "/plants", to: "plants#create"

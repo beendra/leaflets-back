@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
+    before_action :authenticate
 
     def login
-        #fake auth
-        user = User.first
+
+        user = User.find_by(username: params[:username])
         render json: user
     end
 
@@ -12,10 +13,8 @@ class UsersController < ApplicationController
     end 
 
     def show
-        # user = User.find_by(id: params[:id])
-        user = User.first
+        user = User.find_by(id: params[:id])
         render json: user
-
     end 
 
     def create 
@@ -24,8 +23,7 @@ class UsersController < ApplicationController
     end 
 
     def update
-        # user = User.find_by(id: params[:id])
-        user = User.first
+        user = User.find_by(id: params[:id])
         user.update(user_params)
         render json: user 
     end 
@@ -39,7 +37,7 @@ class UsersController < ApplicationController
     private 
 
     def user_params 
-        params.require(:user).permit(:username, :password, :name, :avatar)
+        params.require(:user).permit(:username, :password, :name)
     end 
 
 end

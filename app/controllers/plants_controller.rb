@@ -20,8 +20,6 @@ class PlantsController < ApplicationController
             photo: params[:photo]         
         }
         a_plant = Plant.create(new_plant)
-        # plant = Plant.create!(plant_params)
-        # plant.photo.attach
         render json: a_plant
     end 
 
@@ -40,8 +38,7 @@ class PlantsController < ApplicationController
     private 
 
     def plant_params 
-        params.permit(:plant_name, :user_id, :database_id, :photo)
-        # params.require(:plant).permit(:plant_name, :user_id, :database_id, :photo)
+        params.permit(:plant_name, :user_id, :database_id)
     end 
 
 end
