@@ -31,6 +31,7 @@ class PlantsController < ApplicationController
 
     def destroy
         plant = Plant.find_by(id: params[:id])
+        plant.logs.destroy_all
         plant.destroy
         render json: plant
     end 
