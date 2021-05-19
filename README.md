@@ -5,6 +5,9 @@ Leaflets is my solo final project for Flatiron School. The houseplant industry h
 ## Tech
 Leaflets was built with a React front end and a Rails API backend. 
 
+## Demo
+[Leaflets Demo](https://youtu.be/y6MR5iHuZto)
+
 ## ERD
 <img width="769" alt="Screen Shot 2021-05-12 at 6 15 10 PM" src="https://user-images.githubusercontent.com/73048932/118055581-00f7e880-b34e-11eb-9fd9-e10a70cb7545.png">
 
